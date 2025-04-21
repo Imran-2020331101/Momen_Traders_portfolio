@@ -2,10 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { category } from '../Data';
-import { Link } from 'react-router-dom';
+import { gallary_images } from '../Data';
 
-function Works() {
+function Gallery() {
 
   const settings = {
     dots: true,
@@ -38,20 +37,17 @@ function Works() {
   return (
     <section id="works" className="py-16 bg-gray-100">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">Our Imports</h2>
+        <h2 className="text-3xl font-bold mb-6">Photo Gallery</h2>
         <Slider {...settings}>
-          {category.map((product, index) => (
+          {gallary_images.map((product, index) => (
             <div key={index} className="p-4">
-              <Link to={`/${product.linkToGo}`}>
-                <div className="bg-white rounded-md shadow-md p-6">
+                <div className="bg-white rounded-md shadow-md">
                   <img 
-                    src={product.imageUrl} 
+                    src={product}
                     alt="image of electronics"
-                    className="w-full h-64 object-contain mb-4"
+                    className="w-full h-64 object-contain "
                     />
-                  <h3 className="text-xl font-semibold">{product.title}</h3>
                 </div>
-              </Link>
             </div>
           ))}
         </Slider>
@@ -60,4 +56,4 @@ function Works() {
   );
 }
 
-export default Works;
+export default Gallery;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { contact_info,social_media } from "../Data";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -178,49 +179,26 @@ function Contact() {
             <h4 className="text-lg font-semibold text-white mb-4">
               Contact Info
             </h4>
-            <p className="mb-2 hover:text-white transition">
-              📍 Farmview Super Market, Dhaka
-            </p>
-            <p className="mb-1 hover:text-white transition">
-              📞 Store: +8801641757175
-            </p>
-            <p className="mb-1 hover:text-white transition">
-              🚚 Delivery: +8801919646416
-            </p>
-            <p className="hover:text-white transition">
-              📨 Info: +8801717062205
-            </p>
+            { contact_info.map(
+                (info)=> <p className="mb-2 hover:text-white transition">
+                            {info}
+                          </p>
+              )}
           </div>
 
           {/* Social Media */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Follow Us</h4>
             <div className="flex space-x-4 mt-2">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
+              {
+                social_media.map((info)=><a
+                href={info.link} className="text-gray-400 hover:text-white transition transform hover:scale-110"
               >
-                <i className="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
-              >
-                <i className="fab fa-youtube text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
-              >
-                <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
-              >
-                <i className="fab fa-instagram text-xl"></i>
-              </a>
+                <i className={`fab ${info.className} text-xl`}></i>
+              </a>)
+              }
             </div>
+
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Works from '../components/Works';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-import Electronics_photo from '../assets/images/Electronics_photo.jpg'
+import Electronics_photo from '../assets/categories/Electronics_photo.jpg'
+import Gallery from '../components/Gallary';
 
 function Home() {
   return (
@@ -15,6 +14,7 @@ function Home() {
         </div>
         <Works />
         <About />
+        <Gallery/>
         <Contact />
       </main>
     </div>
