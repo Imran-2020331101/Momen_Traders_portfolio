@@ -1,4 +1,4 @@
-import electronics from './assets/images/Electronics.jpg'
+import electronics from './assets/images/Electronics_photo.jpg'
 import chemicalImage from './assets/images/chemical.jpg'
 
 export const products = [

@@ -1,25 +1,18 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import About from './components/About';
-import Works from './components/Works';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Electronics from './assets/images/Electronics.jpg'
+import { Route, Routes} from 'react-router-dom';
+import Home from './pages/Home';
+import Electronics from './pages/Electronics';
+import ParentLayout from './components/ParentLayout';
+
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <main>
-        <div>
-          <img src={Electronics} alt="Hero section photo" />
-        </div>
-        <Works />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path='/' element={<ParentLayout/>} >
+        <Route index element={<Home/>}/>
+        <Route path='electronics' element={<Electronics/>}/>
+      </Route>
+    </Routes>
   );
 }
 
