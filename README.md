@@ -22,26 +22,22 @@ This website showcases the business of Momen Traders, providing information abou
 To run this website locally, follow these steps:
 
 1.  **Clone the repository** (if you have the code in a repository):
-    ```bash
-    git clone <repository_url>
-    cd momen-traders-portfolio
+    ```bash[
+    git clone https://github.com/Imran-2020331101/Momen_Traders_portfolio.git
+    cd Momen_Traders_portfolio
     ```
 
 2.  **Install dependencies:**
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
 3.  **Start the development server:**
     ```bash
     npm start
-    # or
-    yarn start
     ```
 
-    This will open the website in your browser, usually at `http://localhost:3000`.
+    This will open the website in your browser, usually at `http://localhost:5173`.
 
 ## Project Structure
 
