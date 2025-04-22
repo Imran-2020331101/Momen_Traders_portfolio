@@ -32,16 +32,16 @@ function Navbar() {
       <nav className="shadow-md bg-white sticky top-0 z-50">
         {/* Top Info Bar */}
         <div className="bg-blue-50 text-sm text-blue-800 px-4 py-3">
-          <div className="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-4 text-base font-medium">
+          <div className="container mx-auto flex flex-col sm:flex-row justify-around sm:justify-end items-center gap-4 text-base font-medium">
             {/* Desktop View - Full Info */}
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <PhoneIcon className="w-5 h-5 text-blue-600" />
-              <a href="tel:+919925460006">(+91) 99254 60006</a>
+              <a href="tel:+919925460006">(+880) 1906019777</a>
             </div>
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <EnvelopeIcon className="w-5 h-5 text-blue-600" />
               <a href="mailto:support@maxwelladditives.com">
-                support@maxwelladditives.com
+                support@momentraders.com
               </a>
             </div>
 
@@ -96,7 +96,7 @@ function Navbar() {
           </button>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto">
+          <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto pr-18">
             {["About Us", "Works", "Contact"].map((item, index) => {
               const href = ["#about", "#works", "#contact"][index];
               return (

@@ -70,7 +70,7 @@ export default function Gallery() {
   return (
     <section id="works" className="py-16 bg-gradient-to-b from-[#FDFBEE] to-[#0f1a20]">
       <div className="container mx-auto text-center px-4">
-        <h2 className="text-3xl font-bold text-gray-800 mb-10">Photo Gallery</h2>
+        <h2 className="text-4xl font-bold text-gray-800 mb-15">Photo Gallery</h2>
 
         <div className="relative ">
           <Slider {...settings}>
