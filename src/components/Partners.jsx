@@ -10,7 +10,7 @@ function Gallery() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -40,7 +40,7 @@ function Gallery() {
         <h2 className="text-3xl font-bold mb-6">Photo Gallery</h2>
         <Slider {...settings}>
           {gallary_images.map((product, index) => (
-            <div key={index} className="py-4">
+            <div key={index} className="p-4">
                 <div className="bg-white rounded-md shadow-md">
                   <img 
                     src={product}

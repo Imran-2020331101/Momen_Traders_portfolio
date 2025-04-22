@@ -50,7 +50,7 @@ export const category = [
 
 export const products = [
     {
-        name:'Digital Printing Devices'
+        name:'Digital Printing Devices',
     },
     {
         name:'Computing Devices'
@@ -73,7 +73,7 @@ export const products = [
 
 ]
 
-export const partners_logo = [
+export const partner_logos = [
     'hello'
 ]
 
