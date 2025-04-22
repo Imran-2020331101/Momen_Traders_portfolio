@@ -3,7 +3,7 @@ import React from 'react';
 function Electronics() {
   return (
     <h1>
-        hello
+        hello this is electronics
     </h1>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import Momen_logo from '../assets/icons/Momen_logo.png'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,8 @@ function Navbar() {
         <div className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center relative">
           {/* Logo */}
           <h1 className="w-full md:w-auto text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_200%] relative">
-            Momen Traders
+            <img className="w-2xs pl-6"
+              src={Momen_logo} alt="Main logo" />
           </h1>
 
           {/* Hamburger */}

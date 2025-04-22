@@ -1,6 +1,8 @@
 import React from 'react';
 import image from '../assets/categories/Electronics_photo.jpg';
 import chemicalImage from '../assets/categories/chemical.jpg';
+import { mission } from '../Data';
+import { div, h1 } from 'framer-motion/client';
 
 function About() {
   return (
@@ -33,6 +35,19 @@ function About() {
           chemical products, garment accessories, and cutting-edge digital LED screens. Our focus is on reliability, efficiency, and
           building strong partnerships.
         </p>
+
+        {/* Mission, Vision and Value */}
+        <div className='flex justify-around items-center'>
+          {
+            mission.map((item)=>
+              <div className='items-center flex-col flex'>
+                <h className='font-bold text-xl'>{item.title}</h>
+                <img src={item.logo} alt="" />
+                <p>{item.desc}</p>
+              </div>
+            )
+          }
+        </div>
       </div>
     </section>
   );

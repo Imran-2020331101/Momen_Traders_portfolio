@@ -20,6 +20,11 @@ import image17 from './assets/images/17.JPG'
 import image18 from './assets/images/18.JPG'
 import image19 from './assets/images/19.JPG'
 import image20 from './assets/images/20.jpeg'
+import missionIcon from './assets/icons/mission.webp'
+import visionIcon from './assets/icons/vision.webp'
+import valueIcon from './assets/icons/our-value.webp'
+
+
 
 export const category = [
     {
@@ -105,4 +110,23 @@ export const social_media = [
         link:"#",
         className: 'fa-instagram'
     },
+]
+
+
+export const mission = [
+    {
+        title: 'Mission',
+        logo: missionIcon,
+        desc: 'To help every customer have a positive memorable experience'
+    },
+    {
+        title: 'Vision',
+        logo: visionIcon,
+        desc: 'To have a positive impact on the lives of our customers and our team'
+    },
+    {
+        title: 'Our Value',
+        logo: valueIcon,
+        desc: 'To be open, honest and fair whatever we do, do it right and we do it together'
+    }
 ]
