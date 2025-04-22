@@ -1,100 +1,146 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const menuItems = [
-    { label: "About Us", href: "#about" },
-    { label: "Works", href: "#works" },
-    { label: "Contact", href: "#contact" },
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   return (
-    <nav className="py-4 shadow-md bg-white sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center relative">
-        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-800 bg-clip-text text-transparent animate-text-glow tracking-tight">
-          Momen Traders
-        </h1>
+    <>
+      {/* Fade background overlay when mobile menu is open */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black opacity-40 z-30 transition-opacity duration-300"></div>
+      )}
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="relative text-gray-800 hover:text-blue-600 transition duration-300
-                  before:content-[''] before:absolute before:-bottom-1 before:left-0
-                  before:w-0 before:h-[2px] before:bg-blue-600 before:transition-all
-                  before:duration-300 hover:before:w-full"
-              >
-                {item.label}
+      <nav className="shadow-md bg-white sticky top-0 z-50">
+        {/* Top Info Bar */}
+        <div className="bg-blue-50 text-sm text-blue-800 px-4 py-3">
+          <div className="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-4 text-base font-medium">
+            {/* Desktop View - Full Info */}
+            <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
+              <PhoneIcon className="w-5 h-5 text-blue-600" />
+              <a href="tel:+919925460006">(+91) 99254 60006</a>
+            </div>
+            <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
+              <EnvelopeIcon className="w-5 h-5 text-blue-600" />
+              <a href="mailto:support@maxwelladditives.com">
+                support@maxwelladditives.com
               </a>
-            </li>
-          ))}
-        </ul>
+            </div>
 
-        {/* Mobile Toggle Button */}
-        <div className="md:hidden relative z-50">
+            {/* Mobile/Tablet View - Icons Only */}
+            <div className="sm:hidden flex items-center space-x-6 justify-center">
+              <a href="tel:+919925460006">
+                <PhoneIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 transition" />
+              </a>
+              <a href="mailto:support@maxwelladditives.com">
+                <EnvelopeIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 transition" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Nav */}
+        <div className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center relative">
+          {/* Logo */}
+          <h1 className="w-full md:w-auto text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_200%] relative">
+            Momen Traders
+          </h1>
+
+          {/* Hamburger */}
           <button
+            ref={buttonRef}
+            className="absolute top-4 right-4 md:hidden text-gray-700 focus:outline-none z-50"
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800 focus:outline-none"
           >
-            {isOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              ) : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
-              </svg>
-            )}
+              )}
+            </svg>
           </button>
 
-          {/* Dropdown Menu */}
-          <div
-            className={`absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg transition-all duration-300 ease-in-out origin-top-right ${
-              isOpen
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-95 pointer-events-none"
-            }`}
-          >
-            <ul className="py-2 text-gray-700 font-medium">
-              {menuItems.map((item) => (
-                <li key={item.href}>
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto">
+            {["About Us", "Works", "Contact"].map((item, index) => {
+              const href = ["#about", "#works", "#contact"][index];
+              return (
+                <li key={item}>
                   <a
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                    href={href}
+                    className="relative inline-block px-2 py-1 hover:text-blue-500 transition
+                     after:content-[''] after:absolute after:bottom-0 after:left-0
+                     after:w-full after:h-0.5 after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100
+                     after:origin-left after:transition-transform"
                   >
-                    {item.label}
+                    {item}
                   </a>
                 </li>
-              ))}
-            </ul>
+              );
+            })}
+          </ul>
+
+          {/* Mobile Dropdown */}
+          <div
+            ref={menuRef}
+            className={`fixed top-[100px] right-0 w-1/3 bg-[#0f1a20] shadow-xl rounded-l-xl p-6 space-y-4 
+              transition-transform duration-300 ease-in-out z-40 md:hidden ${
+                isOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+          >
+            {["About Us", "Works", "Contact"].map((item, index) => {
+              const href = ["#about", "#works", "#contact"][index];
+              return (
+                <a
+                  key={item}
+                  href={href}
+                  onClick={() => setIsOpen(false)}
+                  className="block relative text-white px-2 py-2 hover:text-blue-400 transition
+                   after:content-[''] after:absolute after:bottom-1 after:left-0
+                   after:w-full after:h-0.5 after:bg-blue-400 after:scale-x-0 hover:after:scale-x-100
+                   after:origin-left after:transition-transform"
+                >
+                  {item}
+                </a>
+              );
+            })}
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
 
