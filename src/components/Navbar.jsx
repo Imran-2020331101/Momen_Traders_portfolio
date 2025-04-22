@@ -1,98 +1,103 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const menuItems = [
-    { label: "About Us", href: "#about" },
-    { label: "Works", href: "#works" },
-    { label: "Contact", href: "#contact" },
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   return (
-    <nav className="py-4 shadow-md bg-white sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center relative">
-        <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-800 bg-clip-text text-transparent animate-text-glow tracking-tight">
+    <nav className="shadow-md bg-white sticky top-0 z-50">
+      {/* Top Info Bar */}
+      <div className="bg-blue-50 text-blue-800 text-sm px-4 py-3">
+        <div className="container mx-auto flex justify-between items-center">
+          {/* Icons only on small screens */}
+          <div className="flex md:hidden gap-4 text-xl text-blue-700">
+            <a href="tel:+919925460006" className="hover:text-blue-500 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.14 3.42a1 1 0 01-.26 1.06l-1.77 1.77a16.1 16.1 0 006.07 6.07l1.77-1.77a1 1 0 011.06-.26l3.42 1.14a1 1 0 01.68.95V19a2 2 0 01-2 2h-.5C6.5 21 3 17.5 3 13.5V13a2 2 0 012-2h.5z" />
+              </svg>
+            </a>
+            <a href="mailto:support@maxwelladditives.com" className="hover:text-blue-500 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16v16H4V4zm4 4l8 4-8 4V8z" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Text Info for larger screens */}
+          <div className="hidden md:flex w-full justify-end gap-8 text-base font-semibold">
+            <a href="tel:+919925460006" className="flex items-center gap-2 hover:text-blue-500 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.14 3.42a1 1 0 01-.26 1.06l-1.77 1.77a16.1 16.1 0 006.07 6.07l1.77-1.77a1 1 0 011.06-.26l3.42 1.14a1 1 0 01.68.95V19a2 2 0 01-2 2h-.5C6.5 21 3 17.5 3 13.5V13a2 2 0 012-2h.5z" />
+              </svg>
+              (+91) 99254 60006
+            </a>
+            <a href="mailto:support@maxwelladditives.com" className="flex items-center gap-2 hover:text-blue-500 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16v16H4V4zm4 4l8 4-8 4V8z" />
+              </svg>
+              support@maxwelladditives.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Nav Bar */}
+      <div className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center relative">
+        {/* Logo */}
+        <h1 className="w-full md:w-auto text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_200%] hover:before:content-['✨'] hover:before:absolute hover:before:-top-2 hover:before:-right-4 hover:before:text-yellow-300 hover:before:animate-sparkle">
           Momen Traders
         </h1>
 
+        {/* Hamburger */}
+        <button
+          ref={buttonRef}
+          className="absolute top-4 right-4 md:hidden text-gray-700 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="relative text-gray-800 hover:text-blue-600 transition duration-300
-                  before:content-[''] before:absolute before:-bottom-1 before:left-0
-                  before:w-0 before:h-[2px] before:bg-blue-600 before:transition-all
-                  before:duration-300 hover:before:w-full"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto">
+          <li><a href="#about" className="hover:text-blue-500 transition-colors duration-200">About Us</a></li>
+          <li><a href="#works" className="hover:text-blue-500 transition-colors duration-200">Works</a></li>
+          <li><a href="#contact" className="hover:text-blue-500 transition-colors duration-200">Contact</a></li>
         </ul>
 
-        {/* Mobile Toggle Button */}
-        <div className="md:hidden relative z-50">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800 focus:outline-none"
-          >
-            {isOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
-
-          {/* Dropdown Menu */}
+        {/* Mobile Dropdown */}
+        {isOpen && (
           <div
-            className={`absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg transition-all duration-300 ease-in-out origin-top-right ${
-              isOpen
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-95 pointer-events-none"
-            }`}
+            ref={menuRef}
+            className="absolute top-full right-4 mt-2 bg-white shadow-lg rounded-xl px-6 py-4 space-y-4 md:hidden transition-all duration-300"
           >
-            <ul className="py-2 text-gray-700 font-medium">
-              {menuItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <a href="#about" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-blue-500 transition">About Us</a>
+            <a href="#works" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-blue-500 transition">Works</a>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-blue-500 transition">Contact</a>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
