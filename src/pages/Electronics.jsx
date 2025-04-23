@@ -1,10 +1,13 @@
 import React from 'react';
+import Partners from '../components/Partners'
+import Category from '../components/Category';
 
 function Electronics() {
   return (
-    <h1>
-        hello this is electronics
-    </h1>
+    <div>
+      <Category/>
+      <Partners/>
+    </div>
   );
 }
 

@@ -23,6 +23,21 @@ import image20 from './assets/images/20.jpeg'
 import missionIcon from './assets/icons/mission.webp'
 import visionIcon from './assets/icons/vision.webp'
 import valueIcon from './assets/icons/our-value.webp'
+import asusLogo from './assets/partner_logos/asus.png'
+import DeliLogo from './assets/partner_logos/Deli.jpg'
+import DELLLogo from './assets/partner_logos/DELL.jpg'
+import HPLogo from './assets/partner_logos/HP.jpg'
+import maxellLogo from './assets/partner_logos/maxell.jpg'
+import OKILogo from './assets/partner_logos/OKI.png'
+import Computing_device from './assets/categories/Computing_device.png'
+import Office_Equipments from './assets/categories/office_equipments.jpg'
+import printer from './assets/categories/printer.jpg'
+import Med_Equipments from './assets/categories/Med_Equipments.jpg'
+import Digital_Boards from './assets/categories/Digital_Boards.jpg'
+import Banking_Equipments from './assets/categories/Banking_Equipments.jpg'
+
+
+
 
 
 
@@ -56,30 +71,32 @@ export const category = [
 export const products = [
     {
         name:'Digital Printing Devices',
+        picture: printer
     },
     {
-        name:'Computing Devices'
+        name:'Computing Devices',
+        picture: Computing_device
     },
     {
-        name:'Banking Equipments'
+        name:'Banking Equipments',
+        picture: Banking_Equipments
     },
     {
-        name:'Smart Display System'
+        name:'Smart Display System',
+        picture: Digital_Boards
     },
     {
-        name:'Office Equipments'
+        name:'Office Equipments',
+        picture: Office_Equipments
     },
     {
-        name:'Medical Equipments'
+        name:'Medical Equipments',
+        picture: Med_Equipments
     },
-    {
-        name:'Digital Printing Devices'
-    },
-
 ]
 
 export const partner_logos = [
-    'hello'
+    asusLogo,DeliLogo,DELLLogo,HPLogo,maxellLogo,OKILogo
 ]
 
 export const gallary_images = [

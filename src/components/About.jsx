@@ -32,7 +32,7 @@ function About() {
           <strong className="text-blue-600">Momen Traders</strong> is a dynamic import and distribution business committed to bringing
           quality products to the market. We specialize in sourcing and delivering a diverse range of goods including computer electronics,
           chemical products, garment accessories, and cutting-edge digital LED screens. Our focus is on reliability, efficiency, and
-          building strong partnerships.
+          building strong partnerships.We are operating the business for the last 7 years in Bangladesh.
         </p>
 
         {/* Mission, Vision, Values */}

@@ -20,7 +20,6 @@ function Home() {
         <Works />
         <About />
         <Gallery />
-        <Contact />
       </main>
     </div>
   );

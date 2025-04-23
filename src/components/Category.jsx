@@ -2,9 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { partner_logos } from '../Data';
+import { products } from '../Data';
 
-function Partners() {
+export default function Category() {
 
   const settings = {
     dots: false,
@@ -37,17 +37,18 @@ function Partners() {
 
   return (
     <section id="works" className="py-6 bg-gray-100 px-40">
-        <h2 className="text-3xl text-center font-bold mb-10">Our Partners</h2>
-      <div className="container mx-auto text-center mb-6">
+      <div className="container mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6">Product Category</h2>
         <Slider {...settings}>
-          {partner_logos.map((product, index) => (
+          {products.map((product, index) => (
             <div key={index} className="p-4">
                 <div className="">
-                  <img 
-                    src={product}
-                    alt="image of electronics"
-                    className="w-full h-50 object-contain "
+                    <img 
+                    src={product.picture}
+                    alt={product.name}
+                    className="w-full h-64 object-contain "
                     />
+                    <p>{product.name}</p>
                 </div>
             </div>
           ))}
@@ -56,5 +57,3 @@ function Partners() {
     </section>
   );
 }
-
-export default Partners;

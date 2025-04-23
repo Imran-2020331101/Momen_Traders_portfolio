@@ -63,7 +63,7 @@ function Contact() {
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         {/* Contact Form */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Send Us a Query</h2>
           <p className="text-gray-300 text-base md:text-lg">
             Please fill out the form below to send us your query.
           </p>
