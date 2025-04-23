@@ -62,10 +62,10 @@ function Works() {
   return (
     <section id="works" className="py-20 scroll-smooth snap-y">
       <div className="container mx-auto px-4 text-center relative snap-start">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        <h2 className="text-4xl font-bold text-gray-900 mb-10 tracking-tight">
           Our Imports
         </h2>
-        <p className="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-600 mb-15 text-lg max-w-2xl mx-auto">
           Explore our diverse portfolio of imported products, curated to meet the highest standards across industries.
         </p>
 

@@ -59,11 +59,11 @@ function Navbar() {
         </div>
 
         {/* Main Nav */}
-        <div className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center relative">
+        <div className="container mx-auto px-4 py-2 flex flex-wrap justify-between items-center relative">
           {/* Logo */}
           <Link to='/'>
-            <h1 className="w-full md:w-auto text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_200%] relative">
-              <img className="w-2xs pl-6"
+            <h1>
+              <img className="w-55 ml-6"
                 src={Momen_logo} alt="Main logo" />
             </h1>
           </Link>
