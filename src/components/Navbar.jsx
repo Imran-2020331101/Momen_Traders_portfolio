@@ -36,11 +36,11 @@ function Navbar() {
             {/* Desktop View - Full Info */}
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <PhoneIcon className="w-5 h-5 text-blue-600" />
-              <a href="tel:+919925460006">(+880) 1906019777</a>
+              <a href="tel:+8801906019777">(+880) 1906019777</a>
             </div>
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <EnvelopeIcon className="w-5 h-5 text-blue-600" />
-              <a href="mailto:support@maxwelladditives.com">
+              <a href="mailto:support@momentraders.com">
                 support@momentraders.com
               </a>
             </div>
