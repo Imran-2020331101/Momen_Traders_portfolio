@@ -1,24 +1,21 @@
 import React from "react";
 import About from "../components/About";
 import Works from "../components/Imports";
-import Contact from "../components/Contact";
-import Electronics_photo from "../assets/categories/Electronics_photo.jpg";
 import Gallery from "../components/Gallary";
+import Banner from "../components/Banner";
+import Partners from '../components/Partners'
+import Print_Banner from '../assets/banners/Printing_Banner.jpg'
+import { category } from '../Data';
+import ProductList from '../components/ProductList';
 
 function Home() {
   return (
     <div>
       <main>
-        <div>
-          <img
-            src={Electronics_photo}
-            alt="Hero section photo"
-            className="h-[80vh] w-auto mx-auto object-contain"
-          />
-        </div>
-
+        <Banner/>
         <Works />
         <About />
+        <Partners/>
         <Gallery />
       </main>
     </div>

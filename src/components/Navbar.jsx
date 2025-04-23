@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { PhoneIcon, EnvelopeIcon, ClockIcon } from "@heroicons/react/24/solid";
 import Momen_logo from "../assets/icons/Momen_logo.png";
 import { Link } from "react-router-dom";
 
@@ -36,10 +36,12 @@ function Navbar() {
           <div className="container mx-auto flex flex-col sm:flex-row justify-around sm:justify-end items-center gap-4 text-base font-medium">
             {/* Desktop View - Full Info */}
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
+              <ClockIcon className="w-5 h-5 text-blue-600 hover:scale-110 transform transition" />
+                Working Hours: 9am - 6pm
+            </div>
+            <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <PhoneIcon className="w-5 h-5 text-blue-600 hover:scale-110 transform transition" />
-              <a href="tel:+8801906019777" aria-label="Call Momen Traders">
                 (+880) 1906019777
-              </a>
             </div>
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
               <EnvelopeIcon className="w-5 h-5 text-blue-600 hover:scale-110 transform transition" />
@@ -70,7 +72,7 @@ function Navbar() {
         <div className="container mx-auto px-4 py-2 flex flex-wrap justify-between items-center relative">
           {/* Logo */}
           <Link to='/'>
-            <img className="w-55 ml-6"
+            <img className="w-65 ml-6"
                 src={Momen_logo} alt="Main logo" />
           </Link>
 
@@ -106,7 +108,7 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto pr-18">
-            {["About Us", "Works", "Contact"].map((item, index) => {
+            {["About Us", "Products", "Contact"].map((item, index) => {
               const href = ["#about", "#works", "#contact"][index];
               return (
                 <li key={item}>

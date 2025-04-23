@@ -1,4 +1,5 @@
-import electronics from './assets/categories/Electronics_photo.jpg'
+// import electronics from './assets/categories/Electronics_photo.jpg'
+import electronics from './assets/categories/microsoft-accessories.jpg'
 import chemicalImage from './assets/categories/chemical.jpg'
 import image1 from './assets/images/1.JPG'
 import image2 from './assets/images/2.JPG'
@@ -28,6 +29,7 @@ import DeliLogo from './assets/partner_logos/Deli.jpg'
 import DELLLogo from './assets/partner_logos/DELL.jpg'
 import HPLogo from './assets/partner_logos/HP.jpg'
 import maxellLogo from './assets/partner_logos/maxell.jpg'
+import ToshibaLogo from './assets/partner_logos/Toshiba.jpg'
 import OKILogo from './assets/partner_logos/OKI.png'
 import Computing_device from './assets/categories/Computing_device.png'
 import Office_Equipments from './assets/categories/office_equipments.jpg'
@@ -36,36 +38,48 @@ import Med_Equipments from './assets/categories/Med_Equipments.jpg'
 import Digital_Boards from './assets/categories/Digital_Boards.jpg'
 import Banking_Equipments from './assets/categories/Banking_Equipments.jpg'
 import Garment_Accessories from './assets/categories/Garment_Accessories.jpg'
+import asus_proart from './assets/banners/asus-proart.webp'
+import asus_wifi from './assets/banners/asus-wifi.webp'
+import zenbook from './assets/banners/asus-zenbook.webp'
+import Printing_banner from './assets/banners/Printing_Banner.jpg'
 
 
+
+export const banners = [
+    asus_proart,asus_wifi,zenbook,Printing_banner
+]
 
 
 
 
 export const category = [
     {
-        imageUrl: electronics,
-        title:'Computer Electronics',
-        desc:'This is a Computer Electronic',
-        linkToGo:"electronics"
+      imageUrl: electronics,
+      title: 'Computer Electronics',
+      desc: 'Explore our comprehensive range of computer electronics, including laptops, desktops, peripherals, components, and accessories. We source high-quality products to meet the demands of businesses and individuals alike, ensuring reliable performance and the latest technology.',
+      linkToGo: "electronics",
+      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
     },
     {
-        imageUrl:chemicalImage,
-        title:'Chemical Products',
-        desc:'This is a Computer Electronic',
-        linkToGo:"electronics"
+      imageUrl: chemicalImage,
+      title: 'Chemical Products',
+      desc: 'We import and distribute a diverse selection of chemical products for various industrial and commercial applications. Our portfolio includes raw materials, specialty chemicals, and solutions tailored to meet specific manufacturing and processing needs, with a focus on quality and safety standards.',
+      linkToGo: "chemicals",
+      buttons: ['Water treatment Chemical','Sugar processing chemical','Keyboards','Mices','Headphones']
     },
     {
-        imageUrl: Garment_Accessories,
-        title:'Garments Accessories',
-        desc:'This is a Computer Electronic',
-        linkToGo:"electronics"
+      imageUrl: Garment_Accessories,
+      title: 'Garments Accessories',
+      desc: 'Discover our extensive collection of garment accessories, essential for the apparel industry. From buttons and zippers to labels, threads, and trims, we provide high-quality components that enhance the design and durability of clothing, catering to diverse fashion requirements.',
+      linkToGo: "garment-accessories",
+      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
     },
     {
-        imageUrl:electronics,
-        title:'Digital LED Screens',
-        desc:'This is a Computer Electronic',
-        linkToGo:"electronics"
+      imageUrl: electronics,
+      title: 'Digital LED Screens',
+      desc: 'Elevate your visual communication with our range of digital LED screens. Ideal for advertising, information displays, and entertainment, our screens offer vibrant visuals, high resolution, and energy efficiency, available in various sizes and configurations to suit different environments.',
+      linkToGo: "led-screens" ,
+      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
     },
   ];
 
@@ -148,3 +162,23 @@ export const mission = [
         desc: 'To be open, honest and fair whatever we do, do it right and we do it together'
     }
 ]
+
+
+
+export const productData = [
+    {
+      imageUrl: electronics,
+      title: 'Product Alpha',
+      description: 'Description of product alpha...',
+    },
+    {
+      imageUrl: chemicalImage,
+      title: 'Product Beta',
+      description: 'Details about product beta...',
+    },
+    {
+      imageUrl: electronics,
+      title: 'Product Gamma',
+      description: 'Information on product gamma...',
+    },
+  ];

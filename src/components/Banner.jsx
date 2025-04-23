@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { category,productData } from '../Data';
-import ProductList from './ProductList';
+import { banners } from '../Data';
 
 // Custom Arrows
 function NextArrow({ onClick }) {
@@ -29,13 +28,12 @@ function PrevArrow({ onClick }) {
 }
 
 function Imports() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const settings = {
-    dots: true,
+    const settings = {
+    dots: false,
     infinite: true,
     speed: 600,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -47,7 +45,7 @@ function Imports() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          dots: true,
+          dots: false,
         }
       },
       {
@@ -55,22 +53,28 @@ function Imports() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots:false
         }
       }
     ]
   };
 
   return (
-    <section id="works" className="p-20 bg-gradient-to-b from-[#f8f6e1] to-white scroll-smooth snap-y">
-      <div className="container mx-auto px-4 text-center relative snap-start">
-        <h2 className="text-4xl font-bold text-gray-900 mb-10 tracking-tight">
-          Our Imports
-        </h2>
-        <p className="text-gray-600 mb-15 text-lg max-w-2xl mx-auto">
-          Explore our diverse portfolio of imported products, curated to meet the highest standards across industries.
-        </p>
-
-        <ProductList products={category} />
+    <section id="banners" className="scroll-smooth ">
+      <div className="container mx-auto relative snap-start">
+        <Slider {...settings}>
+          {banners.map((product, index) => (
+            <div key={index} >
+              <div className="overflow-hidden">
+                <img
+                    src={product}
+                    alt='banners'
+                    className="object-fill h-full w-full"
+                  />
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );
