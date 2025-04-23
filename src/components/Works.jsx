@@ -5,11 +5,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import { category } from '../Data';
 
 // Custom Arrows
-function NextArrow(props) {
-  const { onClick } = props;
+function NextArrow({ onClick }) {
   return (
     <div
-      className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-3xl text-[#0f1a20] hover:text-blue-600"
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
       onClick={onClick}
     >
       ❯
@@ -17,11 +16,10 @@ function NextArrow(props) {
   );
 }
 
-function PrevArrow(props) {
-  const { onClick } = props;
+function PrevArrow({ onClick }) {
   return (
     <div
-      className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-3xl text-[#0f1a20] hover:text-blue-600"
+      className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
       onClick={onClick}
     >
       ❮
@@ -39,7 +37,7 @@ function Works() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 4000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -48,36 +46,50 @@ function Works() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          dots: true
+          dots: true,
         }
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
         }
       }
     ]
   };
 
   return (
-    <section id="works" className="py-16 bg-white">
-      <div className="container mx-auto px-4 text-center relative">
-        <h2 className="text-3xl font-bold mb-10 text-gray-800 tracking-wide">Our Imports</h2>
+    <section id="works" className="py-20 scroll-smooth snap-y">
+      <div className="container mx-auto px-4 text-center relative snap-start">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+          Our Imports
+        </h2>
+        <p className="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
+          Explore our diverse portfolio of imported products, curated to meet the highest standards across industries.
+        </p>
+
         <Slider {...settings}>
           {category.map((product, index) => (
-            <div key={index} className="px-6 py-6 ">
+            <div key={index} className="px-4 py-6 snap-center">
               <div
                 onClick={() => setSelectedProduct(product)}
-                className="cursor-pointer bg-white p-6 rounded-xl transition duration-300 shadow-lg border border-gray-200 hover:shadow-[0_10px_20px_rgba(15,26,32,0.2)] hover:scale-[1.03] transform"
+                className="cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group"
               >
-                <img
-                  src={product.imageUrl}
-                  alt={product.title}
-                  className="w-full h-64 object-contain mb-4 rounded-2xl"
-                />
-                <h3 className="text-xl font-semibold text-[#0f1a20]">{product.title}</h3>
+                <div className="h-64 w-full bg-gray-100 flex items-center justify-center p-4">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.title}
+                    className="object-contain h-full w-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3
+                    className="text-lg font-semibold text-gray-800 group-hover:text-blue-400 transition-colors duration-200 active:scale-95 transform"
+                  >
+                    {product.title}
+                  </h3>
+                </div>
               </div>
             </div>
           ))}
@@ -86,26 +98,37 @@ function Works() {
         {/* Modal */}
         {selectedProduct && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedProduct(null)}
           >
             <div
-              className="bg-white max-w-md mx-4 md:mx-0 rounded-2xl shadow-xl p-6 relative animate-fade-in"
+              className="bg-white max-w-lg w-full rounded-2xl shadow-2xl p-6 relative animate-fade-in"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl"
+                className="absolute top-4 right-5 text-gray-400 hover:text-red-500 text-2xl"
               >
                 &times;
               </button>
               <img
                 src={selectedProduct.imageUrl}
                 alt={selectedProduct.title}
-                className="w-full h-60 object-contain mb-4 rounded-lg"
+                className="w-full h-64 object-contain mb-6 rounded-xl"
               />
-              <h3 className="text-2xl font-bold mb-2">{selectedProduct.title}</h3>
-              <p className="text-gray-600">{selectedProduct.description}</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                {selectedProduct.title}
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                {selectedProduct.description}
+              </p>
+              <div className="mt-6">
+                <button
+                  className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
           </div>
         )}
