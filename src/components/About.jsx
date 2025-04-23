@@ -1,11 +1,10 @@
 import React from 'react';
-import image from '../assets/categories/Electronics_photo.jpg';
-import chemicalImage from '../assets/categories/chemical.jpg';
+import TeamImage from '../assets/images/20.jpeg';
 import { mission } from '../Data';
 
 function About() {
   return (
-    <section id="about" className="py-16 bg-gradient-to-b from-white to-[#FDFBEE]">
+    <section id="about" className="p-16 bg-gradient-to-b from-white to-[#FDFBEE]">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-extrabold text-gray-800 mb-20 tracking-tight">
           About Us
@@ -13,7 +12,7 @@ function About() {
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {[image, chemicalImage, image, image].map((imgSrc, idx) => (
+          {[TeamImage,TeamImage,TeamImage,TeamImage].map((imgSrc, idx) => (
             <div
               key={idx}
               className="rounded-2xl border border-gray-200 overflow-hidden shadow-md transition duration-300"

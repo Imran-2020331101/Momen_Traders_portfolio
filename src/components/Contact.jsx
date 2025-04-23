@@ -59,7 +59,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-[#0f1a20] text-white py-16">
+    <section id="contact" className="bg-[#0f1a20] text-white py-19">
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         {/* Contact Form */}
         <div className="text-center mb-12">

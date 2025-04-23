@@ -30,7 +30,7 @@ function Navbar() {
         <div className="fixed inset-0 bg-black opacity-40 z-30 transition-opacity duration-300"></div>
       )}
 
-      <nav className="bg-gradient-to-b from-[#FDFBEE] to-white z-50">
+      <nav className="bg-[#f8f6e1] z-50">
         {/* Top Info Bar */}
         <div className="bg-gradient-to-r from-[#FDFBEE] to-blue-50 text-sm text-blue-800 px-4 py-3">
           <div className="container mx-auto flex flex-col sm:flex-row justify-around sm:justify-end items-center gap-4 text-base font-medium">

@@ -35,6 +35,7 @@ import printer from './assets/categories/printer.jpg'
 import Med_Equipments from './assets/categories/Med_Equipments.jpg'
 import Digital_Boards from './assets/categories/Digital_Boards.jpg'
 import Banking_Equipments from './assets/categories/Banking_Equipments.jpg'
+import Garment_Accessories from './assets/categories/Garment_Accessories.jpg'
 
 
 
@@ -55,7 +56,7 @@ export const category = [
         linkToGo:"electronics"
     },
     {
-        imageUrl:electronics,
+        imageUrl: Garment_Accessories,
         title:'Garments Accessories',
         desc:'This is a Computer Electronic',
         linkToGo:"electronics"

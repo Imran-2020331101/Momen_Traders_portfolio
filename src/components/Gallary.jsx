@@ -36,7 +36,7 @@ export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -68,9 +68,9 @@ export default function Gallery() {
   };
 
   return (
-    <section id="works" className="py-16 bg-gradient-to-b from-[#FDFBEE] to-[#0f1a20]">
+    <section id="works" className="p-16 bg-gradient-to-b from-[#FDFBEE] to-[#0f1a20]">
       <div className="container mx-auto text-center px-4">
-        <h2 className="text-4xl font-bold text-gray-800 mb-15">Photo Gallery</h2>
+        <h2 className="text-4xl font-bold text-gray-800 mb-20">Photo Gallery</h2>
 
         <div className="relative ">
           <Slider {...settings}>

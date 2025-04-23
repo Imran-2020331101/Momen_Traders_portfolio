@@ -27,7 +27,7 @@ function PrevArrow({ onClick }) {
   );
 }
 
-function Works() {
+function Imports() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const settings = {
@@ -60,7 +60,7 @@ function Works() {
   };
 
   return (
-    <section id="works" className="py-20 scroll-smooth snap-y">
+    <section id="works" className="p-20 bg-gradient-to-b from-[#f8f6e1] to-white scroll-smooth snap-y">
       <div className="container mx-auto px-4 text-center relative snap-start">
         <h2 className="text-4xl font-bold text-gray-900 mb-10 tracking-tight">
           Our Imports
@@ -71,21 +71,21 @@ function Works() {
 
         <Slider {...settings}>
           {category.map((product, index) => (
-            <div key={index} className="px-4 py-6 snap-center">
+            <div key={index} className="p-10 snap-center">
               <div
                 onClick={() => setSelectedProduct(product)}
                 className="cursor-pointer bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group"
               >
-                <div className="h-64 w-full bg-gray-100 flex items-center justify-center p-4">
+                <div className="h-60 w-full bg-gray-100 flex items-center justify-center">
                   <img
                     src={product.imageUrl}
                     alt={product.title}
-                    className="object-contain h-full w-full transition-transform duration-300 group-hover:scale-105"
+                    className="object-fill h-full w-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5">
+                <div className="m-5">
                   <h3
-                    className="text-lg font-semibold text-gray-800 group-hover:text-blue-400 transition-colors duration-200 active:scale-95 transform"
+                    className="text-xl font-semibold text-gray-800 group-hover:text-blue-400 transition-colors duration-200 active:scale-95 transform"
                   >
                     {product.title}
                   </h3>
@@ -114,7 +114,7 @@ function Works() {
               <img
                 src={selectedProduct.imageUrl}
                 alt={selectedProduct.title}
-                className="w-full h-64 object-contain mb-6 rounded-xl"
+                className="w-full object-contain mb-6 rounded-xl"
               />
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 {selectedProduct.title}
@@ -137,4 +137,4 @@ function Works() {
   );
 }
 
-export default Works;
+export default Imports;
