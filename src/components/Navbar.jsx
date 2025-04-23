@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
-import Momen_logo from '../assets/icons/Momen_logo.png'
+import Momen_logo from "../assets/icons/Momen_logo.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -30,29 +30,37 @@ function Navbar() {
         <div className="fixed inset-0 bg-black opacity-40 z-30 transition-opacity duration-300"></div>
       )}
 
-      <nav className="shadow-md bg-white sticky top-0 z-50">
+      <nav className="bg-gradient-to-b from-[#FDFBEE] to-white z-50">
         {/* Top Info Bar */}
-        <div className="bg-blue-50 text-sm text-blue-800 px-4 py-3">
+        <div className="bg-gradient-to-r from-[#FDFBEE] to-blue-50 text-sm text-blue-800 px-4 py-3">
           <div className="container mx-auto flex flex-col sm:flex-row justify-around sm:justify-end items-center gap-4 text-base font-medium">
             {/* Desktop View - Full Info */}
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
-              <PhoneIcon className="w-5 h-5 text-blue-600" />
-              <a href="tel:+8801906019777">(+880) 1906019777</a>
+              <PhoneIcon className="w-5 h-5 text-blue-600 hover:scale-110 transform transition" />
+              <a href="tel:+8801906019777" aria-label="Call Momen Traders">
+                (+880) 1906019777
+              </a>
             </div>
             <div className="hidden sm:flex items-center space-x-2 hover:text-blue-500 transition-colors duration-200">
-              <EnvelopeIcon className="w-5 h-5 text-blue-600" />
-              <a href="mailto:support@momentraders.com">
+              <EnvelopeIcon className="w-5 h-5 text-blue-600 hover:scale-110 transform transition" />
+              <a
+                href="mailto:support@momentraders.com"
+                aria-label="Email Momen Traders"
+              >
                 support@momentraders.com
               </a>
             </div>
 
             {/* Mobile/Tablet View - Icons Only */}
-            <div className="sm:hidden flex items-center space-x-6 justify-center">
-              <a href="tel:+919925460006">
-                <PhoneIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 transition" />
+            <div className="sm:hidden flex items-center space-x-6 justify-center py-2">
+              <a href="tel:+8801906019777" aria-label="Call Momen Traders">
+                <PhoneIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 hover:scale-110 transform transition" />
               </a>
-              <a href="mailto:support@maxwelladditives.com">
-                <EnvelopeIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 transition" />
+              <a
+                href="mailto:support@momentraders.com"
+                aria-label="Email Momen Traders"
+              >
+                <EnvelopeIcon className="w-6 h-6 text-blue-600 hover:text-blue-500 hover:scale-110 transform transition" />
               </a>
             </div>
           </div>
@@ -61,10 +69,9 @@ function Navbar() {
         {/* Main Nav */}
         <div className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center relative">
           {/* Logo */}
-          <Link to='/'>
+          <Link to="/">
             <h1 className="w-full md:w-auto text-2xl md:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_200%] relative">
-              <img className="w-2xs pl-6"
-                src={Momen_logo} alt="Main logo" />
+              <img className="w-2xs pl-6" src={Momen_logo} alt="Main logo" />
             </h1>
           </Link>
 
