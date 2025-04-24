@@ -20,8 +20,6 @@ function Partners() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
-          dots: false
         }
       },
       {
@@ -29,26 +27,23 @@ function Partners() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false
         }
       }
     ]
   };
 
   return (
-    <section id="works" className="py-6 bg-gray-100 px-40">
-        <h2 className="text-3xl text-center font-bold mb-10">Our Partners</h2>
-      <div className="container mx-auto text-center mb-6">
+    <section id="works" className="py-10 bg-[#FDFBEE] px-6 sm:px-20 lg:px-40">
+      <h2 className="text-3xl text-center font-bold text-gray-800 mb-10">Our Partners</h2>
+      <div className="container mx-auto text-center">
         <Slider {...settings}>
           {partner_logos.map((product, index) => (
             <div key={index} className="p-4">
-                <div className="">
-                  <img 
-                    src={product}
-                    alt="image of electronics"
-                    className="w-full h-50 object-contain "
-                    />
-                </div>
+              <img
+                src={product}
+                alt={`partner-${index}`}
+                className="h-32 w-full object-contain rounded-xl"
+              />
             </div>
           ))}
         </Slider>

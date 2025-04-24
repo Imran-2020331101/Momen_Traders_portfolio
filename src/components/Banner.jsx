@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,7 +8,7 @@ import { banners } from '../Data';
 function NextArrow({ onClick }) {
   return (
     <div
-      className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
+      className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
       onClick={onClick}
     >
       ❯
@@ -19,7 +19,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <div
-      className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
+      className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-4xl text-blue-800 hover:text-blue-600"
       onClick={onClick}
     >
       ❮
@@ -28,8 +28,7 @@ function PrevArrow({ onClick }) {
 }
 
 function Imports() {
-
-    const settings = {
+  const settings = {
     dots: false,
     infinite: true,
     speed: 600,
@@ -43,9 +42,8 @@ function Imports() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
         }
       },
       {
@@ -53,25 +51,22 @@ function Imports() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots:false
         }
       }
     ]
   };
 
   return (
-    <section id="banners" className="scroll-smooth ">
-      <div className="container mx-auto relative snap-start">
+    <section id="banners" className="scroll-smooth bg-gradient-to-b from-[#FDFBEE] to-white">
+      <div className="relative">
         <Slider {...settings}>
           {banners.map((product, index) => (
-            <div key={index} >
-              <div className="overflow-hidden">
-                <img
-                    src={product}
-                    alt='banners'
-                    className="object-fill h-full w-full"
-                  />
-              </div>
+            <div key={index} className="w-full h-[80vh] sm:h-[70vh] overflow-hidden">
+              <img
+                src={product}
+                alt={`banner-${index}`}
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
         </Slider>
