@@ -40,7 +40,7 @@ import Banking_Equipments from './assets/categories/Banking_Equipments.jpg'
 import Garment_Accessories from './assets/categories/Garment_Accessories.jpg'
 import asus_proart from './assets/banners/asus-proart.webp'
 import asus_wifi from './assets/banners/asus-wifi.webp'
-import zenbook from './assets/banners/asus-zenbook.webp'
+import zenbook from './assets/banners/laptop.png'
 import Printing_banner from './assets/banners/Printing_Banner.jpg'
 
 
@@ -58,28 +58,28 @@ export const category = [
       title: 'Computer Electronics',
       desc: 'Explore our comprehensive range of computer electronics, including laptops, desktops, peripherals, components, and accessories. We source high-quality products to meet the demands of businesses and individuals alike, ensuring reliable performance and the latest technology.',
       linkToGo: "electronics",
-      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
+      buttons: ['Desktop','Laptop','Monitor','Keyboards','GPU','Motherboard','RAM','Proccessor','Mices','Headphones']
     },
     {
       imageUrl: chemicalImage,
       title: 'Chemical Products',
       desc: 'We import and distribute a diverse selection of chemical products for various industrial and commercial applications. Our portfolio includes raw materials, specialty chemicals, and solutions tailored to meet specific manufacturing and processing needs, with a focus on quality and safety standards.',
       linkToGo: "chemicals",
-      buttons: ['Water treatment Chemical','Sugar processing chemical','Keyboards','Mices','Headphones']
+      buttons: ['Water treatment Chemical','Sugar processing chemical',"Solvents", "Resins", "Pigments", "Lubricants", "Cleaners"]
     },
     {
       imageUrl: Garment_Accessories,
       title: 'Garments Accessories',
       desc: 'Discover our extensive collection of garment accessories, essential for the apparel industry. From buttons and zippers to labels, threads, and trims, we provide high-quality components that enhance the design and durability of clothing, catering to diverse fashion requirements.',
       linkToGo: "garment-accessories",
-      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
+      buttons: ["Buttons", "Zippers", "Labels", "Tapes", "Threads"]
     },
     {
-      imageUrl: electronics,
+      imageUrl: Digital_Boards,
       title: 'Digital LED Screens',
       desc: 'Elevate your visual communication with our range of digital LED screens. Ideal for advertising, information displays, and entertainment, our screens offer vibrant visuals, high resolution, and energy efficiency, available in various sizes and configurations to suit different environments.',
       linkToGo: "led-screens" ,
-      buttons: ['Laptop','Monitor','Keyboards','Mices','Headphones']
+      buttons: ["Indoor", "Outdoor", "Flexible", "Transparent", "Rental"]
     },
   ];
 
@@ -111,7 +111,7 @@ export const products = [
 ]
 
 export const partner_logos = [
-    asusLogo,DeliLogo,DELLLogo,HPLogo,maxellLogo,OKILogo
+    asusLogo,DeliLogo,DELLLogo,HPLogo,maxellLogo,OKILogo,ToshibaLogo
 ]
 
 export const gallary_images = [

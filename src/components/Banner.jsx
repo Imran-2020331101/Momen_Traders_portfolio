@@ -61,7 +61,7 @@ function Imports() {
       <div className="relative">
         <Slider {...settings}>
           {banners.map((product, index) => (
-            <div key={index} className="w-full h-[90vh] sm:h-[70vh] overflow-hidden">
+            <div key={index} className="w-full h-[80vh]  overflow-hidden">
               <img
                 src={product}
                 alt={`banner-${index}`}
