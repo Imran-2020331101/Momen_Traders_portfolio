@@ -8,6 +8,10 @@ function Navbar() {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
+  const navbuttons = [{title:"About Us",href:"#about"}, {title:"Products",href:"#works"},
+                      {title:"Events",href:"#nav"},{title:"Blogs",href:"#nav"},
+                      {title:"Career",href:"#nav"}, {title:"Contact",href:"#contact"}]
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -108,18 +112,17 @@ function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 text-gray-700 font-medium ml-auto pr-18">
-            {["About Us", "Products", "Contact"].map((item, index) => {
-              const href = ["#about", "#works", "#contact"][index];
+            {navbuttons.map((item, index) => {
               return (
-                <li key={item}>
+                <li key={index}>
                   <a
-                    href={href}
+                    href={item.href}
                     className="relative inline-block px-2 py-1 hover:text-blue-500 transition
                      after:content-[''] after:absolute after:bottom-0 after:left-0
                      after:w-full after:h-0.5 after:bg-blue-500 after:scale-x-0 hover:after:scale-x-100
                      after:origin-left after:transition-transform"
                   >
-                    {item}
+                    {item.title}
                   </a>
                 </li>
               );
@@ -134,19 +137,19 @@ function Navbar() {
                 isOpen ? "translate-x-0" : "translate-x-full"
               }`}
           >
-            {["About Us", "Works", "Contact"].map((item, index) => {
-              const href = ["#about", "#works", "#contact"][index];
+            {navbuttons.map((item, index) => {
+
               return (
                 <a
-                  key={item}
-                  href={href}
+                  key={index}
+                  href={item.href}
                   onClick={() => setIsOpen(false)}
                   className="block relative text-white px-2 py-2 hover:text-blue-400 transition
                    after:content-[''] after:absolute after:bottom-1 after:left-0
                    after:w-full after:h-0.5 after:bg-blue-400 after:scale-x-0 hover:after:scale-x-100
                    after:origin-left after:transition-transform"
                 >
-                  {item}
+                  {item.title}
                 </a>
               );
             })}
