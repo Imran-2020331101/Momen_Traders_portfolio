@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Electronics from './pages/Electronics';
 import ParentLayout from './components/ParentLayout';
 
-
+// nothing just testing the automation
 function App() {
   return (
     <Routes>
